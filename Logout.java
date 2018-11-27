@@ -1,4 +1,4 @@
-package Training3OOPS;
+package Main;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,19 +6,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Logout {
-
-	WebDriver driver;
-	public Logout(WebDriver driver) {
-		this.driver= driver;
-		PageFactory.initElements(driver, this);
-	}
-		
-	@FindBy(xpath="//*[@id=\"column-right\"]/div/a[13]")
-	public WebElement Logout;
 	
-	public void Logout1() {
-		driver.get("https://demo.opencart.com/index.php?route=account/logout");
+	WebDriver Driver;
+	public Logout(WebDriver Driver)
+	{
+		this.Driver = Driver;
+		PageFactory.initElements(Driver, this);
 	}
-
+	
+	@FindBy (xpath=("//*[@id=\\\"top-links\\\"]/ul/li[2]/a"))
+	public WebElement dropdown;
+	
+	@FindBy (xpath=("//*[@id=\"top-links\"]/ul/li[2]/ul/li[5]/a"))
+	public WebElement LogOT;
+	
+	public void Logout() {
+		dropdown.click();
+		LogOT.click();
 	}
-
+	
+}
